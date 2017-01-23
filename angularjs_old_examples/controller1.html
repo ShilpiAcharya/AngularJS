@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- <script src="angular.min.js"></script> -->
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>						
+		<script src="../nodejs/node_modules/requirejs/require.js"></script>	 
+		<script src="../nodejs/routing.js"></script>
+	</head>
+	<body ng-app="Sample">
+		<div ng-controller="MainController">
+			<h1>{{message}}</h1>	
+		</div>
+	</body>
+</html>
+<script>
+var app = angular.module('Sample', []);
+var MainController = function($scope, $http){
+	$http.get('/').then(function(){
+		console.log("success");
+	})
+	//$scope.employee = response.data;
+	/*$http.get('http://localhost:8080/dowork',{"msg":"hi"}).success(function(data){
+		console.log(data);
+	});*/
+}
+app.controller('MainController', MainController);
+</script>
